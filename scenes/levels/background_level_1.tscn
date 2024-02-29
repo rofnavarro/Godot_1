@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgo4gyd4084hm"]
+
+[ext_resource type="Texture2D" uid="uid://b3dqbxrce7i1u" path="res://textures/back.png" id="1_spetf"]
+[ext_resource type="Texture2D" uid="uid://jclpab6oybju" path="res://textures/middle.png" id="2_ilm7f"]
+
+[node name="background_level_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="yellow_green_background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_spetf")
+centered = false
+offset = Vector2(0, -30)
+
+[node name="yellow_green_background_2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(320, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_spetf")
+centered = false
+offset = Vector2(0, -30)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1150, 0)
+
+[node name="trees_grass_background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ilm7f")
+centered = false
+
+[node name="trees_grass_background_2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(576, -20)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ilm7f")
+centered = false

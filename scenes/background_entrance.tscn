@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp2f27p3v44hj"]
+
+[ext_resource type="Texture2D" uid="uid://be8kg8ir023mv" path="res://textures/BG_3.png" id="1_v1g4g"]
+[ext_resource type="Texture2D" uid="uid://d3h0yshplihi0" path="res://textures/BG_2.png" id="2_63wob"]
+[ext_resource type="Texture2D" uid="uid://deu5455mrq1c6" path="res://textures/BG_1.png" id="3_ydc05"]
+
+[sub_resource type="GDScript" id="GDScript_p8qlv"]
+script/source = "extends ParallaxBackground
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	scroll_offset.x -= 10 * delta
+"
+
+[node name="Background_Entrance" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = SubResource("GDScript_p8qlv")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-200, 0)
+motion_mirroring = Vector2(1638, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-200, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_v1g4g")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(-200, 0)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1455, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-200, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_63wob")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-200, 0)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1545, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-200, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_ydc05")
+centered = false

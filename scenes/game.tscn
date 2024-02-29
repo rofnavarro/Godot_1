@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyj6i7yjhr33t"]
+
+[ext_resource type="PackedScene" uid="uid://bp2f27p3v44hj" path="res://scenes/background_entrance.tscn" id="2_v1j7r"]
+
+[sub_resource type="GDScript" id="GDScript_pvwmo"]
+script/source = "extends Control
+
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/levels/level_1.tscn\")
+
+func _on_exit_button_pressed():
+	get_tree().quit()
+"
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+script = SubResource("GDScript_pvwmo")
+
+[node name="Background_Entrance" parent="Menu" instance=ExtResource("2_v1j7r")]
+
+[node name="PlayButton" type="Button" parent="Menu"]
+top_level = true
+layout_mode = 0
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 235.0
+offset_bottom = 80.0
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="Menu"]
+top_level = true
+layout_mode = 0
+offset_left = 51.0
+offset_top = 88.0
+offset_right = 235.0
+offset_bottom = 128.0
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="Menu"]
+top_level = true
+layout_mode = 0
+offset_left = 51.0
+offset_top = 136.0
+offset_right = 235.0
+offset_bottom = 176.0
+text = "CREDITS"
+
+[node name="ExitButton" type="Button" parent="Menu"]
+top_level = true
+layout_mode = 0
+offset_left = 51.0
+offset_top = 184.0
+offset_right = 235.0
+offset_bottom = 224.0
+text = "EXIT"
+
+[connection signal="pressed" from="Menu/PlayButton" to="Menu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/ExitButton" to="Menu" method="_on_exit_button_pressed"]
